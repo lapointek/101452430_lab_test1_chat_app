@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SettingsPage from "./pages/SettingsPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -7,9 +7,10 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { useAuthStore } from "./store/useAuthStore";
 import { Loader } from "lucide-react";
+import { useEffect } from "react";
 
 const App = () => {
-    const { authUser, checkAuth, isCheckingAuth } = useAuthStore;
+    const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
 
     useEffect(() => {
         checkAuth();
